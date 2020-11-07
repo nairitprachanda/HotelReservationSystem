@@ -9,11 +9,11 @@ namespace HotelReservationSystemTestProject
         [TestMethod]
         public void TestMethod1()
         {
-            string hotelName = "Hyath";
-            int ratesForRegularCustomer = 100;
+            string hotelName = "Lakewood";
+            int ratesForRegularCustomer = 110;
             Hotel hotel = new Hotel(hotelName, ratesForRegularCustomer);
             hotelSystem.AddHotel(hotel);
-            Assert.AreEqual("Hyath", hotelSystem.hotelList[0].name);
+            Assert.AreEqual("Lakewood", hotelSystem.hotelList[0].name);
         }
         [TestMethod]
         public void GivenHotelOptionsReturnCheapestHotel()
@@ -24,6 +24,14 @@ namespace HotelReservationSystemTestProject
             string[] dates = "10Dec2020,11Dec2020".Split(",");
             Hotel cheapestHotel = hotelSystem.GetCheapestHotel(dates);
             Assert.AreEqual("Lakewood", cheapestHotel.name);
+        }
+        [TestMethod]
+        public void GivenWeekendAndWeekdayRatesReturnCheapestHotel()
+        {
+            hotelSystem.AddHotel(new Hotel("Lakewood", 110, 90));
+            hotelSystem.AddHotel(new Hotel("Bridgewood",160, 50));
+            hotelSystem.AddHotel(new Hotel("Ridgewood", 220, 150));
+            Assert.AreEqual(90, hotelSystem.hotelList[0].weekendRatesForRegularCustomer);
         }
     }
 }

@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
 namespace HotelReservationSystem
 {
-    public class HotelException: Exception
+    public class HotelException : Exception
     {
         public enum ExceptionType
         {
