@@ -78,5 +78,19 @@ namespace HotelReservationSystemTestProject
             Hotel cheapestHotel = hotelSystem.GetCheapestHotelWithBestRating(date);
             Assert.AreEqual(4, cheapestHotel.rating);
         }
+        //7
+        [TestMethod]
+        public void GivenWeekendAndWeekdayBestRatedHotel()
+        {
+            hotelSystem.AddHotel(new Hotel("Lakewood", 3, 110, 90));
+            hotelSystem.AddHotel(new Hotel("Bridgewood", 4, 150, 50));
+            hotelSystem.AddHotel(new Hotel("Ridgewood", 5, 220, 150));
+            string[] dates = "11Sep2020,12Sep2020".Split(",");
+            DateTime[] date = new DateTime[2];
+            date[0] = DateTime.Parse(dates[0]);
+            date[1] = DateTime.Parse(dates[1]);
+            Hotel cheapestHotel = hotelSystem.GetHotelWithBestRating(date);
+            Assert.AreEqual(5, cheapestHotel.rating);
+        }
     }
 }
