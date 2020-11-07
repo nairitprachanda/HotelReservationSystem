@@ -10,6 +10,8 @@ namespace HotelReservationSystem
         public int weekdayRatesForRegularCustomer;
         public int weekendRatesForRegularCustomer;
         public int rating;
+        public int weekdayRatesForRewardCustomer;
+        public int weekendRatesForRewardCustomer;
         public Hotel()
         {
             name = "";
@@ -35,6 +37,13 @@ namespace HotelReservationSystem
             this.rating = rating;
             this.weekdayRatesForRegularCustomer = weekdayRatesForRegularCustomer;
             this.weekendRatesForRegularCustomer = weekendRatesForRegularCustomer;
+        }
+        public Hotel(string hotelName, int rating, int weekdayRatesForCustomer, int weekendRatesForCustomer, RewardCustomer rewardCustomer)
+        {
+            this.name = hotelName;
+            this.rating = rating;
+            this.weekdayRatesForRewardCustomer = weekdayRatesForCustomer;
+            this.weekendRatesForRewardCustomer = weekendRatesForCustomer;
         }
     }
 }
