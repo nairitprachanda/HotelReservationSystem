@@ -10,11 +10,11 @@ namespace HotelReservationSystemTestProject
         [TestMethod]
         public void TestMethod1()
         {
-            string hotelName = "Hyath";
-            int ratesForRegularCustomer = 100;
+            string hotelName = "Lakewood";
+            int ratesForRegularCustomer = 110;
             Hotel hotel = new Hotel(hotelName, ratesForRegularCustomer);
             hotelSystem.AddHotel(hotel);
-            Assert.AreEqual("Hyath", hotelSystem.hotelList[0].name);
+            Assert.AreEqual("Lakewood", hotelSystem.hotelList[0].name);
         }
     }
 }
