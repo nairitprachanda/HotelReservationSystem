@@ -54,5 +54,15 @@ namespace HotelReservationSystemTestProject
             //Console.WriteLine(cheapestHotel.name);
             Assert.AreEqual("Bridgewood", cheapestHotel.name);
         }
+
+        //5
+        [TestMethod]
+        public void GivenRatingReturnRequiredRating()
+        {
+            hotelSystem.AddHotel(new Hotel("Lakewood", 3, 110, 90));
+            hotelSystem.AddHotel(new Hotel("Bridgewood",4, 150, 50));
+            hotelSystem.AddHotel(new Hotel("Ridgewood", 5, 220, 150));
+            Assert.AreEqual(3, hotelSystem.hotelList[0].rating);
+        }
     }
 }
